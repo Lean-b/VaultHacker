@@ -11,15 +11,12 @@ RUN echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /
 RUN wget -q -O - https://archive.kali.org/archive-key.asc | gpg --import
 RUN apt-key adv --keyserver hkps://keyserver.ubuntu.com --recv-key 44C6513A8E4FB3D30875F758ED444FF07D8D0BF6
 
-# Update package lists with the trusted repository
-RUN apt-get update
-
 # Update and clean packages
 RUN apt-get update && apt-get upgrade -y && \
     apt-get autoremove -y && apt-get clean -y
     
 # Install necessary packages 
-RUN apt-get update && apt-get install -y usrmerge apt-utils
+RUN apt-get install -y usrmerge apt-utils
 
 # Set TERM environment variable (optional)
 ENV TERM=xterm
@@ -64,10 +61,6 @@ RUN apt-get install -y wireshark
 
 # Exploitation
 RUN apt-get install -y metasploit-framework
-
-# Create non-root user
-RUN useradd -ms /bin/bash pentester
-USER pentester
 
 # Set working directory
 WORKDIR /home/pentester
