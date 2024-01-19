@@ -63,7 +63,7 @@ RUN apt-get install -y wireshark
 RUN apt-get install -y metasploit-framework
 
 # Set working directory
-WORKDIR /home/pentester
+WORKDIR /home/
 
 # Define default command.
 CMD ["/bin/bash"]
