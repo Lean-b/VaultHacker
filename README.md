@@ -1,55 +1,63 @@
 # VaultHacking with Docker
 
-Is an image in docker which is integrated with tools of pentester.It has more basic tools for can working about system or server web.
+**This image in Docker that is integrated with the tools of pentester. It has more basic tools for working with systems or web servers.**
 
 ## Integrated Tools 
 
 ### Reconnaissance Tools
-```
- subfinder
- sublist3r 
- recon-ng 
- whatweb 
- theharvester
-```
+
+ - subfinder
+ - sublist3r 
+ - recon-ng 
+ - whatweb 
+ - theharvester
+
 ### Reverse Engineering Tools
-```
- radare2
-```
+
+ - radare2
+
 ### Network Scanning Tools
-```
- nmap
- httprobe 
- amass 
- masscan
- sslscan 
- nikto
-```
+
+ - nmap
+ - httprobe 
+ - amass 
+ - masscan
+ - sslscan 
+ - nikto
+
 ### Web Application Testing Tools
-```
- wafw00f
- ffuf 
- gobuster
-```
+
+ - wafw00f
+ - ffuf 
+ - gobuster
+
 ### Wireless Security Tools
-```
- aircrack-ng 
-```
+
+ - aircrack-ng 
+
 ### Database Testing Tools
-```
- sqlmap 
-```
+
+ - sqlmap 
+
 ### Password Cracking Tools
-```
- hydra 
- john
- hashcat
-```
+
+ - hydra 
+ - john
+ - hashcat
+
 ### Network Traffic Analysis Tools
-```
- tcpdump
-```
+
+ - tcpdump
+
 ### Exploitation
+
+ - metasploit-framework
+
+# Commands
 ```
- metasploit-framework
+sudo docker build -t vaulthacking:latest .
+```
+
+```
+sudo docker run -it vaulthacking:latest
 ```
