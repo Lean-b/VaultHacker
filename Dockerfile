@@ -1,9 +1,10 @@
 # Pull base image.
 FROM debian:bullseye-slim
 
-# Repository Kali-Linux
-RUN apt-get update && apt-get install -y gnupg wget
+# Install necessary packages
+RUN apt-get update && apt-get install -y usrmerge apt-utils git curl gnupg wget net-tools
 
+# Repository Kali-Linux
 # Add Kali's repository (using HTTPS for security)
 RUN echo 'deb https://http.kali.org/kali kali-rolling main non-free contrib' > /etc/apt/sources.list.d/kali.list
 
@@ -15,10 +16,7 @@ RUN apt-key adv --keyserver hkps://keyserver.ubuntu.com --recv-key 44C6513A8E4FB
 RUN apt-get update && apt-get upgrade -y && \
     apt-get autoremove -y && apt-get clean -y
     
-# Install necessary packages 
-RUN apt-get install -y usrmerge apt-utils
-
-# Set TERM environment variable (optional)
+# Set TERM environment variable 
 ENV TERM=xterm
 
 # Reconnaissance Tools
@@ -57,7 +55,6 @@ RUN apt-get install -y hashcat
 
 # Network Traffic Analysis Tools
 RUN apt-get install -y tcpdump
-RUN apt-get install -y wireshark
 
 # Exploitation
 RUN apt-get install -y metasploit-framework
